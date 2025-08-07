@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import './App.scss'
 import { cellTowers } from './mock-data/data'
+import Sidebar from './components/Sidebar'
 import SummaryCards from './components/SummaryCards'
 import Filters from './components/Filters'
 import DataTable from './components/DataTable'
@@ -10,6 +11,7 @@ import PieChart from './components/PieChart'
 function App() {
   const [search, setSearch] = useState('')
   const [city, setCity] = useState('All')
+  const [collapsed, setCollapsed] = useState(false)
   const cities = useMemo(
     () => ['All', ...Array.from(new Set(cellTowers.map(t => t.city)))],
     []
@@ -25,31 +27,32 @@ function App() {
   )
 
   return (
-    <div className="container">
-      <header className="app-header">
-        <h1 className="title">Cell Tower Dashboard</h1>
-        <SummaryCards data={filtered} />
-      </header>
-      <Filters
-        search={search}
-        city={city}
-        cities={cities}
-        onSearchChange={setSearch}
-        onCityChange={setCity}
+    <div className={`dashboard-grid ${collapsed ? 'collapsed' : ''}`}>
+      <Sidebar
+        collapsed={collapsed}
+        onToggle={() => setCollapsed(prev => !prev)}
       />
-      <section className="data-section">
-        <div className="table-container">
+
+      <main className="dashboard-main">
+        <SummaryCards data={filtered} />
+        <div className="charts">
+          <BarChart data={filtered} />
+          <PieChart data={filtered} />
+        </div>
+        <div className="table-wrap">
           <DataTable data={filtered} />
         </div>
-        <div className="charts">
-          <div className="chart">
-            <BarChart data={filtered} />
-          </div>
-          <div className="chart">
-            <PieChart data={filtered} />
-          </div>
-        </div>
-      </section>
+      </main>
+
+      <aside className="dashboard-filters">
+        <Filters
+          search={search}
+          city={city}
+          cities={cities}
+          onSearchChange={setSearch}
+          onCityChange={setCity}
+        />
+      </aside>
     </div>
   )
 }

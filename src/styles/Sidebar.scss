@@ -1,0 +1,91 @@
+@use './variables' as *;
+
+.sidebar {
+  background-color: $primary-color;
+  color: #fff;
+  width: clamp(10rem, 15vw, 18rem);
+  padding: 1rem;
+  transition: width 0.3s;
+  position: relative;
+
+  &.collapsed {
+    width: 5rem;
+    .sidebar-title,
+    .sidebar-nav {
+      display: none;
+    }
+    .toggle-btn {
+      right: -1rem;
+    }
+    .sidebar-logo {
+      height: 3rem;
+    }
+  }
+
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: -1rem;
+    padding: 0.25rem;
+    background-color: $secondary-color;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .sidebar-logo {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: 3rem; 
+      object-fit: contain;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+  }
+
+  .sidebar-title {
+    font-size: 1.25rem;
+    margin: 0;
+    color: #fff;
+  }
+
+  .sidebar-nav {
+    margin-top: 2rem;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      margin-bottom: 1rem;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: block;
+      padding: 0.5rem 1rem;
+      border-radius: .5rem;
+
+      &.active {
+        background-color: rgba(255,255,255,.15);
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import Card from './Card'
 import type { CellTower } from '../schema/types'
 
 interface SummaryCardsProps {
@@ -14,18 +15,9 @@ const SummaryCards: FC<SummaryCardsProps> = ({ data }) => {
 
   return (
     <div className="summary-cards">
-      <div className="card">
-        <div className="card-title">Total Towers</div>
-        <div className="card-value">{total}</div>
-      </div>
-      <div className="card">
-        <div className="card-title">Active Towers</div>
-        <div className="card-value">{active}</div>
-      </div>
-      <div className="card">
-        <div className="card-title">Average Signal</div>
-        <div className="card-value">{averageSignal}</div>
-      </div>
+      <Card title="Total Towers" value={total} />
+      <Card title="Active Towers" value={active} />
+      <Card title="Average Signal" value={averageSignal} />
     </div>
   )
 }
