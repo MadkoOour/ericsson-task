@@ -1,4 +1,4 @@
-import type { CellTower } from '../types'
+import type { CellTower } from '../schema/types'
 
 export const cellTowers: CellTower[] = [
   { id: '1', name: 'Cairo Tower 1', city: 'Cairo', networkType: '4G', status: 'active', signalStrength: 4 },

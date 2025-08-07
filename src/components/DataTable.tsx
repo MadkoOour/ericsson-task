@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import type { CellTower } from '../types'
+import type { CellTower } from '../schema/types'
 
 interface DataTableProps {
   data: CellTower[]

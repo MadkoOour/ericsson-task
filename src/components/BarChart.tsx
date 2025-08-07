@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import type { FC } from 'react'
 import * as d3 from 'd3'
-import type { CellTower } from '../types'
+import type { CellTower } from '../schema/types'
 
 interface BarChartProps {
   data: CellTower[]
