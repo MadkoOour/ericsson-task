@@ -8,20 +8,20 @@ import DataTable from './components/DataTable'
 import BarChart from './components/BarChart'
 import PieChart from './components/PieChart'
 
-function App() {
+const App = () => {
   const [search, setSearch] = useState('')
   const [city, setCity] = useState('All')
   const [collapsed, setCollapsed] = useState(false)
   const cities = useMemo(
-    () => ['All', ...Array.from(new Set(cellTowers.map(t => t.city)))],
+    () => ['All', ...Array.from(new Set(cellTowers.map(tower => tower.city)))],
     []
   )
   const filtered = useMemo(
     () =>
       cellTowers.filter(
-        t =>
-          (city === 'All' || t.city === city) &&
-          t.name.toLowerCase().includes(search.toLowerCase())
+        tower =>
+          (city === 'All' || tower.city === city) &&
+          tower.name.toLowerCase().includes(search.toLowerCase())
       ),
     [search, city]
   )

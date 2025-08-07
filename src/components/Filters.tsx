@@ -1,20 +1,18 @@
-import type { FC } from 'react'
-
 interface FiltersProps {
-  search: string
-  city: string
-  cities: string[]
-  onSearchChange: (value: string) => void
-  onCityChange: (value: string) => void
+  search: string;
+  city: string;
+  cities: string[];
+  onSearchChange: (value: string) => void;
+  onCityChange: (value: string) => void;
 }
 
-const Filters: FC<FiltersProps> = ({
+const Filters = ({
   search,
   city,
   cities,
   onSearchChange,
-  onCityChange
-}) => (
+  onCityChange,
+}: FiltersProps) => (
   <section className="filters">
     <div className="filter-group">
       <label htmlFor="search-input">Tower Name</label>
@@ -23,7 +21,7 @@ const Filters: FC<FiltersProps> = ({
         type="text"
         placeholder="Search by name"
         value={search}
-        onChange={e => onSearchChange(e.target.value)}
+        onChange={(e) => onSearchChange(e.target.value)}
         className="search-input"
       />
     </div>
@@ -32,10 +30,10 @@ const Filters: FC<FiltersProps> = ({
       <select
         id="city-select"
         value={city}
-        onChange={e => onCityChange(e.target.value)}
+        onChange={(e) => onCityChange(e.target.value)}
         className="city-select"
       >
-        {cities.map(c => (
+        {cities.map((c) => (
           <option key={c} value={c}>
             {c}
           </option>
@@ -43,6 +41,6 @@ const Filters: FC<FiltersProps> = ({
       </select>
     </div>
   </section>
-)
+);
 
-export default Filters
+export default Filters;

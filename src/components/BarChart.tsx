@@ -1,5 +1,4 @@
 import { useRef, useEffect } from 'react'
-import type { FC } from 'react'
 import * as d3 from 'd3'
 import type { CellTower } from '../schema/types'
 
@@ -7,7 +6,7 @@ interface BarChartProps {
   data: CellTower[]
 }
 
-const BarChart: FC<BarChartProps> = ({ data }) => {
+const BarChart = ({ data }:BarChartProps) => {
   const ref = useRef<SVGSVGElement>(null)
 
   useEffect(() => {

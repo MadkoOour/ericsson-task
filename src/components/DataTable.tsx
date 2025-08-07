@@ -1,11 +1,10 @@
-import type { FC } from 'react'
 import type { CellTower } from '../schema/types'
 
 interface DataTableProps {
   data: CellTower[]
 }
 
-const DataTable: FC<DataTableProps> = ({ data }) => (
+const DataTable = ({ data }:DataTableProps) => (
   <table>
     <thead>
       <tr>

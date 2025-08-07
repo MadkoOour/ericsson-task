@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import '../styles/Card.scss'
 
 interface CardProps {
@@ -6,7 +6,7 @@ interface CardProps {
   value: ReactNode
 }
 
-const Card: FC<CardProps> = ({ title, value }) => (
+const Card = ({ title, value }:CardProps) => (
   <div className="card">
     <div className="card-title">{title}</div>
     <div className="card-value">{value}</div>

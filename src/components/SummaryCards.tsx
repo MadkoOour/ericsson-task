@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import Card from './Card'
 import type { CellTower } from '../schema/types'
 
@@ -6,7 +5,7 @@ interface SummaryCardsProps {
   data: CellTower[]
 }
 
-const SummaryCards: FC<SummaryCardsProps> = ({ data }) => {
+const SummaryCards = ({ data }:SummaryCardsProps) => {
   const total = data.length
   const active = data.filter(t => t.status === 'active').length
   const averageSignal = total

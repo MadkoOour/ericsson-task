@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../images/logo.png';
 import '../styles/Sidebar.scss';
@@ -9,7 +8,7 @@ interface SidebarProps {
   onToggle: () => void;
 }
 
-const Sidebar: FC<SidebarProps> = ({ collapsed, onToggle }) => (
+const Sidebar = ({ collapsed, onToggle }: SidebarProps) => (
   <aside className={collapsed ? 'sidebar collapsed' : 'sidebar'}>
     <button className="toggle-btn" onClick={onToggle}>
       {collapsed ? '»' : '«'}
