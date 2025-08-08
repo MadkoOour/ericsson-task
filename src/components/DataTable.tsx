@@ -1,4 +1,5 @@
 import type { CellTower } from '../schema/types'
+import '../styles/DataTable.scss'
 
 interface DataTableProps {
   data: CellTower[]

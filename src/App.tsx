@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import './App.scss'
+import './styles/App.scss'
 import { cellTowers } from './mock-data/data'
 import Sidebar from './components/Sidebar'
 import SummaryCards from './components/SummaryCards'
