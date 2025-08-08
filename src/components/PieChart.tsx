@@ -49,7 +49,7 @@ const PieChart = ({ data }: PieChartProps) => {
       .append("text")
       .attr("transform", (d) => `translate(${arc!.centroid(d)})`)
       .attr("text-anchor", "middle")
-      .attr("font-size", "12px")
+      .attr("font-size", "16px")
       .text((d) => `${d.data.status}: ${d.data.count}`);
   }, [data]);
 
