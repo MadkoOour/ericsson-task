@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../images/logo.png';
-import { useState } from 'react';
 import '../styles/Sidebar.scss';
 
 
@@ -10,14 +9,7 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
-  const [isLightMode, setIsLightMode] = useState(false);
-  const toggleTheme = () => {
-    setIsLightMode(prev => {
-      const next = !prev;
-      document.body.classList.toggle('light-mode', next);
-      return next;
-    });
-  };
+
 
   return (
     <aside className={collapsed ? 'sidebar collapsed' : 'sidebar'}>
@@ -46,13 +38,6 @@ const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
         </nav>
       )}
 
-      {!collapsed && (
-        <div className="theme-switcher">
-          <button className="theme-toggle-btn" onClick={toggleTheme}>
-            {isLightMode ? '🌞' : '🌙'}
-          </button>
-        </div>
-      )}
     </aside>
   );
 };
