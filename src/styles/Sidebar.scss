@@ -2,7 +2,7 @@
 
 .sidebar {
   background-color: $primary-color;
-  color: #fff;
+  color: $text-color;
   width: 14rem;
   padding: 1rem;
   transition: width 0.3s;
@@ -30,7 +30,7 @@
   .toggle-btn {
     background: none;
     border: none;
-    color: #fff;
+    color: $text-color;
     font-size: 1.2rem;
     cursor: pointer;
     position: absolute;
@@ -65,7 +65,7 @@
   .sidebar-title {
     font-size: 1.25rem;
     margin: 0;
-    color: #fff;
+    color: $text-color;
   }
 
   .sidebar-nav {
@@ -79,7 +79,7 @@
       margin-bottom: 1rem;
     }
     a {
-      color: #fff;
+      color: $text-color;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
@@ -89,9 +89,40 @@
 
       &.active {
         background-color: rgba(255,255,255,.15);
-        color: #fff;
+        color: $text-color;
       }
     }
+  }
+}
+
+.mobile-close-btn {
+  display: none;
+}
+
+@media (max-width: $breakpoint-md) {
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 14rem;
+    height: 100vh;
+    z-index: 1000;
+    flex-direction: column;
+    transition: none;
+  }
+  .sidebar.mobile-open {
+    display: flex;
+  }
+  .mobile-close-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: $text-color;
+    font-size: 1.5rem;
+    align-self: flex-end;
+    margin: 1rem;
+    cursor: pointer;
   }
 }
 
@@ -103,7 +134,7 @@
   .theme-toggle-btn {
     background: none;
     border: none;
-    color: #fff;
+    color: $text-color;
     font-size: 1.5rem;
     cursor: pointer;
   }

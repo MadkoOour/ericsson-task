@@ -6,13 +6,16 @@ import '../styles/Sidebar.scss';
 interface SidebarProps {
   collapsed: boolean;
   onToggle: () => void;
+  mobileOpen: boolean;
+  onMobileClose: () => void;
 }
 
-const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
+const Sidebar = ({ collapsed, onToggle, mobileOpen, onMobileClose }: SidebarProps) => {
 
 
   return (
-    <aside className={collapsed ? 'sidebar collapsed' : 'sidebar'}>
+    <aside className={`sidebar ${collapsed ? 'collapsed' : ''} ${mobileOpen ? 'mobile-open' : ''}`}>
+      <button className="mobile-close-btn" onClick={onMobileClose}>×</button>
       <button className="toggle-btn" onClick={onToggle}>
         {collapsed ? '»' : '«'}
       </button>
@@ -27,7 +30,7 @@ const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
           <ul>
             <li>
               <NavLink
-                to="/dashboard"
+                to="/"
                 end
                 className={({ isActive }) => (isActive ? 'active' : undefined)}
               >
