@@ -1,3 +1,4 @@
+import '../styles/Filters.scss';
 interface FiltersProps {
   search: string;
   city: string;

@@ -2,6 +2,7 @@
 
 .dashboard-header {
   display: none;
+
   @media (max-width: $breakpoint-md) {
     display: flex;
     align-items: center;
@@ -26,27 +27,6 @@
   }
 }
 
-@media (max-width: $breakpoint-md) {
-  .dashboard-main {
-    .summary-cards {
-      flex-direction: column;
-    }
-    .charts {
-      flex-direction: column;
-    }
-  }
-
-  .dashboard-filters {
-    position: static;
-    top: auto;
-    align-self: auto;
-    border-left: none;
-    border-top: 1px solid $card-border;
-    height: auto;
-    width: 100%;
-  }
-}
-
 .dashboard-grid {
   display: grid;
   grid-template-columns: var(--sidebar-width, 240px) 1fr 300px;
@@ -55,14 +35,18 @@
 .dashboard-grid.collapsed {
   --sidebar-width: 64px;
 }
+
 @media (max-width: $breakpoint-md) {
   .dashboard-grid {
     display: block;
   }
 }
+
 .dashboard-main {
   display: flex;
   flex-direction: column;
+  background-color: $background-color;
+
   .summary-cards {
     display: flex;
     gap: 1rem;
@@ -70,7 +54,6 @@
     justify-content: center;
     margin: 1rem;
   }
-  background-color: $background-color;
 
   .charts {
     display: flex;
@@ -94,70 +77,13 @@
   }
 }
 
-.dashboard-filters {
-  padding: 1rem;
-  background-color: $background-color;
-  position: sticky;
-  top: 0;
-  align-self: start;
-  border-left: 1px solid $card-border;
-  height: 100vh;
-
-  .filters {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    height: 50vh;
-
-    .filter-group {
-      display: flex;
+@media (max-width: $breakpoint-md) {
+  .dashboard-main {
+    .summary-cards {
       flex-direction: column;
-
-      label {
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-        font-size: 0.9rem;
-        color: $text-color;
-      }
     }
-  }
-
-  .search-input,
-  .city-select,
-  .status-select,
-  .network-select {
-    padding: 0.6rem 0.8rem;
-    border: 1px solid $card-border;
-    border-radius: 6px;
-    width: 100%;
-    font-size: 0.95rem;
-    background-color: $card-bg;
-    color: $text-color;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-    &:focus {
-      outline: none;
-      border-color: lighten($card-border, 15%);
-      box-shadow: 0 0 0 2px rgba($primary-color, 0.15);
+    .charts {
+      flex-direction: column;
     }
-  }
-
-  select.city-select,
-  select.status-select,
-  select.network-select {
-    appearance: none;
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 12px;
-  }
-  .reset-btn {
-    padding: 0.6rem 0.8rem;
-    border: 1px solid $card-border;
-    border-radius: 6px;
-    background-color: $card-bg;
-    color: $text-color;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
   }
 }

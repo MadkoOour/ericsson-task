@@ -15,18 +15,17 @@ const App = () => {
   const [networkType, setNetworkType] = useState('All')
   const [collapsed, setCollapsed] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+
   const cities = useMemo(
     () => ['All', ...Array.from(new Set(cellTowers.map(tower => tower.city)))],
     []
   )
-  const statuses = useMemo(
-    () => ['All', 'active', 'offline'],
-    []
-  )
+  const statuses = useMemo(() => ['All', 'active', 'offline'], [])
   const networkTypes = useMemo(
     () => ['All', ...Array.from(new Set(cellTowers.map(tower => tower.networkType)))],
     []
   )
+
   const filtered = useMemo(
     () =>
       cellTowers.filter(
@@ -45,6 +44,7 @@ const App = () => {
         <button className="menu-btn" onClick={() => setMobileOpen(true)}>☰</button>
         <h1 className="dashboard-title">Cell Tower Dashboard</h1>
       </header>
+
       <Sidebar
         collapsed={collapsed}
         onToggle={() => setCollapsed(prev => !prev)}
@@ -54,6 +54,27 @@ const App = () => {
 
       <main className="dashboard-main">
         <SummaryCards data={filtered} />
+        <div className="mobile-filters">
+          <Filters
+            search={search}
+            city={city}
+            status={status}
+            networkType={networkType}
+            cities={cities}
+            statuses={statuses}
+            networkTypes={networkTypes}
+            onSearchChange={setSearch}
+            onCityChange={setCity}
+            onStatusChange={setStatus}
+            onNetworkTypeChange={setNetworkType}
+            onReset={() => {
+              setSearch('')
+              setCity('All')
+              setStatus('All')
+              setNetworkType('All')
+            }}
+          />
+        </div>
         <div className="charts">
           <BarChart data={filtered} />
           <PieChart data={filtered} />

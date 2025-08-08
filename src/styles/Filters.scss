@@ -1,0 +1,154 @@
+@use './variables' as *;
+
+.mobile-filters {
+  display: none;
+}
+
+.dashboard-filters {
+  padding: 1rem;
+  background-color: $background-color;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  border-left: 1px solid $card-border;
+  height: 100vh;
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    height: 50vh;
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: $text-color;
+      }
+    }
+  }
+
+  .search-input,
+  .city-select,
+  .status-select,
+  .network-select {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid $card-border;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 0.95rem;
+    background-color: $card-bg;
+    color: $text-color;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: lighten($card-border, 15%);
+      box-shadow: 0 0 0 2px rgba($primary-color, 0.15);
+    }
+  }
+
+  select.city-select,
+  select.status-select,
+  select.network-select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 12px;
+  }
+
+  .reset-btn {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid $card-border;
+    border-radius: 6px;
+    background-color: $card-bg;
+    color: $text-color;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.mobile-filters {
+  padding: 1rem;
+  background-color: $background-color;
+  position: static;
+  top: auto;
+  align-self: center;
+  height: auto;
+  border-left: 0;
+  width: min(640px, 100% - 2rem);
+  margin: 1rem auto;
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    height: auto;
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: $text-color;
+      }
+    }
+  }
+
+  .search-input,
+  .city-select,
+  .status-select,
+  .network-select {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid $card-border;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 0.95rem;
+    background-color: $card-bg;
+    color: $text-color;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: lighten($card-border, 15%);
+      box-shadow: 0 0 0 2px rgba($primary-color, 0.15);
+    }
+  }
+
+  select.city-select,
+  select.status-select,
+  select.network-select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 12px;
+  }
+
+  .reset-btn {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid $card-border;
+    border-radius: 6px;
+    background-color: $card-bg;
+    color: $text-color;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .mobile-filters {
+    display: block;
+  }
+  .dashboard-filters {
+    display: none;
+  }
+}
