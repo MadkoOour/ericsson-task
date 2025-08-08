@@ -1,6 +1,3 @@
-/// <reference types="vitest" />
-/// <reference types="@testing-library/jest-dom" />
-
 import { render, screen } from '@testing-library/react'
 import Card from '../Card'
 

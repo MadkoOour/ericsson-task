@@ -7,7 +7,7 @@ interface DataTableProps {
 
 const DataTable = ({ data }:DataTableProps) => {
   if (data.length === 0) {
-    return <div className="no-data">There is no data</div>
+    return <div className="no-data">No matching data found.</div>
   }
   return (
     <table>
