@@ -21,13 +21,15 @@ const DataTable = ({ data }:DataTableProps) => {
         </tr>
       </thead>
       <tbody>
-        {data.map(t => (
-          <tr key={t.id}>
-            <td>{t.name}</td>
-            <td>{t.city}</td>
-            <td>{t.networkType}</td>
-            <td>{t.status}</td>
-            <td>{t.signalStrength}</td>
+        {data.map(tower => (
+          <tr key={tower.id}>
+            <td>{tower.name}</td>
+            <td>{tower.city}</td>
+            <td>{tower.networkType}</td>
+            <td className={tower.status.toLowerCase() === 'active' ? 'status-active' : 'status-inactive'}>
+              {tower.status}
+            </td>
+            <td>{tower.signalStrength}</td>
           </tr>
         ))}
       </tbody>
