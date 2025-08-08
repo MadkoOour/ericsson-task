@@ -4,7 +4,7 @@ A responsive web dashboard to help a telecom operations team monitor and analyze
 
 ## 🚀 Live Demo
 
-🔗 [View Live Application](https://ericsson-task-madkooours-projects.vercel.app/)
+🔗 [View Live Application](https://ericsson-task-iota.vercel.app/)
 
 ## 📝 Project Overview
 
