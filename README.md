@@ -58,11 +58,13 @@ yarn dev
 
 ## ✨ Screenshots
 
-| Summary + Filters | Charts + Table |
-![alt text](website-image.png)
+### 📊 Dashboard View
+![Dashboard](./website-image.png)
 
-| Test |
-![alt text](test-image.png)
+### 🧪 Test Output
+![Tests](./test-image.png)
+
+
 
 ---
 
