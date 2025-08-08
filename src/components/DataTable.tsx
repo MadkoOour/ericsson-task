@@ -13,6 +13,7 @@ const DataTable = ({ data }:DataTableProps) => {
     <table>
       <thead>
         <tr>
+          <th>#</th>
           <th>Name</th>
           <th>City</th>
           <th>Network Type</th>
@@ -21,15 +22,19 @@ const DataTable = ({ data }:DataTableProps) => {
         </tr>
       </thead>
       <tbody>
-        {data.map(tower => (
+        {data.map((tower, idx) => (
           <tr key={tower.id}>
-            <td>{tower.name}</td>
-            <td>{tower.city}</td>
-            <td>{tower.networkType}</td>
-            <td className={tower.status.toLowerCase() === 'active' ? 'status-active' : 'status-inactive'}>
+            <td data-label="#"> {idx + 1} </td>
+            <td data-label="Name">{tower.name}</td>
+            <td data-label="City">{tower.city}</td>
+            <td data-label="Network Type">{tower.networkType}</td>
+            <td
+              data-label="Status"
+              className={tower.status.toLowerCase() === 'active' ? 'status-active' : 'status-inactive'}
+            >
               {tower.status}
             </td>
-            <td>{tower.signalStrength}</td>
+            <td data-label="Signal Strength">{tower.signalStrength}</td>
           </tr>
         ))}
       </tbody>
