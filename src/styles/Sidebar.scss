@@ -101,7 +101,6 @@
 
 @media (max-width: $breakpoint-md) {
   .sidebar {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -109,11 +108,17 @@
     height: 100vh;
     z-index: 1000;
     flex-direction: column;
-    transition: none;
+    transform: translateX(-120%);
+    transition: transform 0.3s ease;
   }
+
   .sidebar.mobile-open {
-    display: flex;
+    transform: translateX(0);
+    .toggle-btn{
+      display: none;
+    }
   }
+
   .mobile-close-btn {
     display: block;
     background: none;
@@ -122,20 +127,10 @@
     font-size: 1.5rem;
     align-self: flex-end;
     margin: 1rem;
-    cursor: pointer;
-  }
-}
-
-.theme-switcher {
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-
-  .theme-toggle-btn {
-    background: none;
-    border: none;
-    color: $text-color;
-    font-size: 1.5rem;
+    background-color: $secondary-color;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
     cursor: pointer;
   }
 }
